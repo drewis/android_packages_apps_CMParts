@@ -46,6 +46,9 @@
             android:entries="@array/pref_lockscreen_background_entries"
             android:entryValues="@array/pref_lockscreen_background_values"/>
 
+        <CheckBoxPreference android:key="pref_lockscreen_drew_toggle"
+            android:title="@string/pref_lockscreen_drew_title"
+            android:summary="@string/pref_lockscreen_drew_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>

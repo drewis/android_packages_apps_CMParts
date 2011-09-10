@@ -59,6 +59,8 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 
     private static final String LOCKSCREEN_CUSTOM_BACKGROUND = "pref_lockscreen_background";
 
+    private static final String LOCKSCREEN_DREW_TOGGLE = "pref_lockscreen_drew_toggle";
+
     private CheckBoxPreference mCustomAppTogglePref;
 
     private CheckBoxPreference mRotaryUnlockDownToggle;
@@ -66,6 +68,8 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private CheckBoxPreference mRotaryHideArrowsToggle;
 
     private CheckBoxPreference mCustomIconStyle;
+
+    private CheckBoxPreference mDrewToggle;
 
     private ListPreference mLockscreenStylePref;
 
@@ -213,6 +217,11 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         lockWall = new File(getApplicationContext().getFilesDir()+"/lockwallpaper");
         updateCustomBackgroundSummary();
         mPicker = new ShortcutPickHelper(this, this);
+        
+        mDrewToggle = (CheckBoxPreference) prefSet
+                .findPreference(LOCKSCREEN_DREW_TOGGLE);
+        mDrewToggle.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_DREW, 0) == 1 );
     }
 
     private void updateCustomBackgroundSummary() {
@@ -282,6 +291,11 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             value = mCustomIconStyle.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE, value ? 2 : 1);
+            return true;
+        } else if (preference == mDrewToggle) {
+            value = mDrewToggle.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_DREW, value ? 1 : 0);
             return true;
         } else if (preference == mCustomAppActivityPref) {
             mPicker.pickShortcut();

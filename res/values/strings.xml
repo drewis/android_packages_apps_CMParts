@@ -262,6 +262,8 @@
     <string name="pref_lockscreen_background_result_not_successful">Background not changed</string>
     <string name="pref_lockscreen_custom_icon_style_title">Use application icon for custom app</string>
     <string name="pref_lockscreen_custom_icon_style_summary">Uses application icon instead of CM icon for custom app starter</string>
+    <string name="pref_lockscreen_drew_title">Lockscreen Text</string>
+    <string name="pref_lockscreen_drew_summary">Put a scary message on the lockscreen.</string>
     <string name="pref_lockscreen_rotary_unlock_down_title">Drag down to unlock</string>
     <string name="pref_lockscreen_rotary_unlock_down_summary">Dragging down rotary wheel unlocks. Dragging right starts custom app</string>
     <string name="pref_lockscreen_rotary_hide_arrows_title">Hide rotary arrows</string>
