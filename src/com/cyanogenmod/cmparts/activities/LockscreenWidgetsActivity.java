@@ -42,6 +42,8 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
 
     private static final String LOCKSCREEN_ALWAYS_BATTERY = "lockscreen_always_battery";
 
+    private static final String LOCKSCREEN_FUZZY_CLOCK = "lockscreen_fuzzy_clock";
+
     private CheckBoxPreference mMusicControlPref;
 
     private CheckBoxPreference mNowPlayingPref;
@@ -51,6 +53,8 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     private CheckBoxPreference mAlwaysMusicControlPref;
 
     private CheckBoxPreference mAlwaysBatteryPref;
+    
+    private CheckBoxPreference mFuzzyClock;
 
     private ListPreference mLockscreenMusicHeadsetPref;
 
@@ -98,6 +102,10 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
         mAlwaysBatteryPref = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_ALWAYS_BATTERY);
         mAlwaysBatteryPref.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_ALWAYS_BATTERY, 0) == 1);
+                
+        mFuzzyClock = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_FUZZY_CLOCK);
+        mFuzzyClock.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_FUZZY_CLOCK, 0) == 1);
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -126,6 +134,11 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
         } else if (preference == mAlwaysBatteryPref) {
             value = mAlwaysBatteryPref.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_ALWAYS_BATTERY,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mFuzzyClock) {
+            value = mFuzzyClock.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_FUZZY_CLOCK,
                     value ? 1 : 0);
             return true;
         }
