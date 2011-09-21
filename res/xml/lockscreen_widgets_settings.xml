@@ -45,6 +45,10 @@
             android:title="@string/pref_lockscreen_fuzzy_clock_title"
             android:summary="@string/pref_lockscreen_fuzzy_clock_summary" />
 
+        <CheckBoxPreference android:key="lockscreen_drew_toggle"
+            android:title="@string/pref_lockscreen_drew_title"
+            android:summary="@string/pref_lockscreen_drew_summary" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
