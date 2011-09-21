@@ -113,7 +113,7 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
                 Settings.System.LOCKSCREEN_FUZZY_CLOCK, 0) == 1);
                 
         mDrewToggle = (CheckBoxPreference) prefSet
-                .findPreference(LOCKSCREEN_DREW);
+                .findPreference(LOCKSCREEN_DREW_TOGGLE);
         mDrewToggle.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_DREW, 0) == 1);
     }
