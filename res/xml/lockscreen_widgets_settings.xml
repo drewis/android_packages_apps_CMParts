@@ -51,6 +51,14 @@
             android:dependency="lockscreen_music_controls"
             android:title="@string/pref_lockscreen_always_music_controls_title"
             android:summary="@string/pref_lockscreen_always_music_controls_summary" />
+            
+        <CheckBoxPreference android:key="lockscreen_fuzzy_clock"
+            android:title="@string/pref_lockscreen_fuzzy_clock_title"
+            android:summary="@string/pref_lockscreen_fuzzy_clock_summary" />
+
+        <CheckBoxPreference android:key="lockscreen_drew_toggle"
+            android:title="@string/pref_lockscreen_drew_title"
+            android:summary="@string/pref_lockscreen_drew_summary" />
 
     </PreferenceCategory>
 

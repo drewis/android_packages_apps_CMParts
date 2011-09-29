@@ -52,6 +52,10 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     private static final String LOCKSCREEN_CALENDAR_SHOW_DESCRIPTION = "lockscreen_calendar_show_description";
     private static final String LOCKSCREEN_WIDGETS_LAYOUT = "pref_lockscreen_widgets_layout";
 
+    private static final String LOCKSCREEN_FUZZY_CLOCK = "lockscreen_fuzzy_clock";
+
+    private static final String LOCKSCREEN_DREW_TOGGLE = "lockscreen_drew_toggle";
+
     private CheckBoxPreference mMusicControlPref;
     private CheckBoxPreference mNowPlayingPref;
     private CheckBoxPreference mAlbumArtPref;
@@ -59,6 +63,8 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     private CheckBoxPreference mAlwaysBatteryPref;
     private CheckBoxPreference mCalendarAlarmPref;
     private CheckBoxPreference mCalendarRemindersOnlyPref;
+    private CheckBoxPreference mFuzzyClock;
+    private CheckBoxPreference mDrewToggle;
     private ListPreference mLockscreenMusicHeadsetPref;
     private MultiSelectListPreference mCalendarsPref;
     private ListPreference mCalendarAlarmLookaheadPref;
@@ -163,6 +169,16 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
                 .getStringArray(R.array.pref_lockscreen_widget_layout_entries)[1]);
         mAlwaysBatteryPref.setEnabled(enableShowWidgetsPref);
         mCalendarAlarmPref.setEnabled(enableShowWidgetsPref);
+
+        mFuzzyClock = (CheckBoxPreference) prefSet
+                .findPreference(LOCKSCREEN_FUZZY_CLOCK);
+        mFuzzyClock.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_FUZZY_CLOCK, 0) == 1);
+                
+        mDrewToggle = (CheckBoxPreference) prefSet
+                .findPreference(LOCKSCREEN_DREW_TOGGLE);
+        mDrewToggle.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_DREW, 0) == 1);
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -202,6 +218,15 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
             value = mCalendarRemindersOnlyPref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_CALENDAR_REMINDERS_ONLY, value ? 1 : 0);
+        } else if (preference == mFuzzyClock) {
+            value = mFuzzyClock.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_FUZZY_CLOCK,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mDrewToggle) {
+            value = mDrewToggle.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_DREW,
+                    value ? 1 : 0);
             return true;
         }
         return false;

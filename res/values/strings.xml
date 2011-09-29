@@ -154,6 +154,7 @@
 
     <!-- User interface: LED notifications -->
     <string name="group_settings">Settings</string>
+    <string name="trackball_notifications_title">LED notification colors</string>
     <string name="dialog_color_trackball">Choose a color</string>
     <string name="dialog_blink_trackball">Choose a blink rate</string>
     <string name="color_trackball_flash_title">Flash color</string>
@@ -309,6 +310,10 @@
     <string name="pref_lockscreen_background_result_not_successful">Background not changed</string>
     <string name="pref_lockscreen_custom_icon_style_title">Use application icon for custom app</string>
     <string name="pref_lockscreen_custom_icon_style_summary">Uses application icon instead of CM icon for custom app starter</string>
+    <string name="pref_lockscreen_drew_title">Lockscreen Text</string>
+    <string name="pref_lockscreen_drew_summary">Put a scary message on the lockscreen.</string>
+    <string name="pref_lockscreen_fuzzy_clock_title">Show fuzzy time</string>
+    <string name="pref_lockscreen_fuzzy_clock_summary">Writes the time in words</string>
     <string name="pref_lockscreen_rotary_unlock_down_title">Drag down to unlock</string>
     <string name="pref_lockscreen_rotary_unlock_down_summary">Dragging down rotary wheel unlocks. Dragging right starts custom app</string>
     <string name="pref_lockscreen_rotary_hide_arrows_title">Hide rotary arrows</string>
@@ -464,6 +469,12 @@
     <string name="pref_switch_storage_title">Use internal storage</string>
     <string name="pref_switch_storage_summary_on">Using expanded internal storage for apps and media (requires reboot)</string>
     <string name="pref_switch_storage_summary_off">Using removable card for apps and media (requires reboot)</string>
+    <string name="pref_storage_switch_unavailable">This device doesn\'t have expanded internal storage</string>
+
+    <!-- Application Settings : Switch storage mountpoints -->
+    <string name="pref_switch_storage_title">Use internal storage</string>
+    <string name="pref_switch_storage_summary_on">Using expanded internal storage for apps and media</string>
+    <string name="pref_switch_storage_summary_off">Using removable card for apps and media</string>
     <string name="pref_storage_switch_unavailable">This device doesn\'t have expanded internal storage</string>
 
     <!-- Application Settings : Move any app -->
