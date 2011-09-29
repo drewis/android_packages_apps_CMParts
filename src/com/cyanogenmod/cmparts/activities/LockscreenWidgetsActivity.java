@@ -170,11 +170,13 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
         mAlwaysBatteryPref.setEnabled(enableShowWidgetsPref);
         mCalendarAlarmPref.setEnabled(enableShowWidgetsPref);
 
+        /* Replace DigitalClock with my FuzzyClock */
         mFuzzyClock = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_FUZZY_CLOCK);
         mFuzzyClock.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_FUZZY_CLOCK, 0) == 1);
-                
+
+        /* Adds custom text to the lockscreen where the notifications appear */
         mDrewToggle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_DREW_TOGGLE);
         mDrewToggle.setChecked(Settings.System.getInt(getContentResolver(),
