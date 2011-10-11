@@ -51,15 +51,20 @@
         android:summary="@string/pref_lockscreen_rotary_unlock_down_summary"
         android:order="20" />
 
-    <CheckBoxPreference android:key="pref_lockscreen_ring_unlock_middle_toggle"
-        android:title="@string/pref_lockscreen_ring_unlock_middle_title"
-        android:summary="@string/pref_lockscreen_ring_unlock_middle_summary" 
-        android:order="22" />
-
     <CheckBoxPreference android:key="pref_lockscreen_rotary_hide_arrows_toggle"
         android:title="@string/pref_lockscreen_rotary_hide_arrows_title"
         android:summary="@string/pref_lockscreen_rotary_hide_arrows_summary"
         android:order="30" />
+
+    <CheckBoxPreference android:key="pref_lockscreen_ring_unlock_middle_toggle"
+        android:title="@string/pref_lockscreen_ring_unlock_middle_title"
+        android:summary="@string/pref_lockscreen_ring_unlock_middle_summary" 
+        android:order="32" />
+
+    <CheckBoxPreference android:key="pref_lockscreen_ring_minimal_toggle"
+        android:title="@string/pref_lockscreen_ring_minimal_title"
+        android:summary="@string/pref_lockscreen_ring_minimal_summary" 
+        android:order="34" />
 
     <!-- currently a toggle/checkbox but may be expanded if more icons are added -->
     <CheckBoxPreference android:key="pref_lockscreen_custom_icon_style"

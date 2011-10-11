@@ -70,6 +70,8 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 
     private static final String LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE = "pref_lockscreen_ring_unlock_middle_toggle";
 
+    private static final String LOCKSCREEN_RING_MINIMAL_TOGGLE = "pref_lockscreen_ring_minimal_toggle";
+
     private static final String LOCKSCREEN_CUSTOM_ICON_STYLE = "pref_lockscreen_custom_icon_style";
 
     private static final String LOCKSCREEN_CUSTOM_BACKGROUND = "pref_lockscreen_background";
@@ -85,6 +87,8 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private CheckBoxPreference mRotaryUnlockDownToggle;
 
     private CheckBoxPreference mRingUnlockMiddleToggle;
+
+    private CheckBoxPreference mRingMinimalToggle;
 
     private CheckBoxPreference mRotaryHideArrowsToggle;
 
@@ -231,6 +235,11 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         mRingUnlockMiddleToggle.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, 0) == 1);
 
+        mRingMinimalToggle = (CheckBoxPreference) prefSet
+                .findPreference(LOCKSCREEN_RING_MINIMAL_TOGGLE);
+        mRingMinimalToggle.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_RING_MINIMAL, 0) == 1);
+
         mRotaryHideArrowsToggle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE);
         mRotaryHideArrowsToggle.setChecked(Settings.System.getInt(getContentResolver(),
@@ -342,6 +351,11 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             value = mRingUnlockMiddleToggle.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, value ? 1 : 0);
+            return true;
+        } else if (preference == mRingMinimalToggle) {
+            value = mRingMinimalToggle.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_RING_MINIMAL, value ? 1 : 0);
             return true;
         } else if (preference == mRotaryHideArrowsToggle) {
             value = mRotaryHideArrowsToggle.isChecked();
@@ -577,6 +591,9 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 lockscreenCatPrefs.add(mRingUnlockMiddleToggle);
                 lockscreenCatPrefsEnable.add(true);
 
+                lockscreenCatPrefs.add(mRingMinimalToggle);
+                lockscreenCatPrefsEnable.add(true);
+
                 break;
             case Rotary:
             case RotaryRevamped:
@@ -646,7 +663,10 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE,
                 value ? 2 : 1);
         value = mRingUnlockMiddleToggle.isChecked():
-        Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE,
+        Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE,
+                value ? 1 : 0);
+        value = mRingMinimalToggle.isChecked();
+        Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_RING_MINIMAL,
                 value ? 1 : 0);
     }
 
