@@ -589,10 +589,10 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 lockscreenCatPrefsEnable.add(mCustomAppTogglePref.isChecked());
 
                 lockscreenCatPrefs.add(mRingUnlockMiddleToggle);
-                lockscreenCatPrefsEnable.add(true);
+                lockscreenCatPrefsEnable.add(mCustomAppTogglePref.isChecked());
 
                 lockscreenCatPrefs.add(mRingMinimalToggle);
-                lockscreenCatPrefsEnable.add(true);
+                lockscreenCatPrefsEnable.add(!mCustomAppTogglePref.isChecked());
 
                 break;
             case Rotary:
