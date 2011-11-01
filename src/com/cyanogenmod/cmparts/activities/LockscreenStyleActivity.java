@@ -662,7 +662,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         value = mCustomIconStyle.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE,
                 value ? 2 : 1);
-        value = mRingUnlockMiddleToggle.isChecked():
+        value = mRingUnlockMiddleToggle.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE,
                 value ? 1 : 0);
         value = mRingMinimalToggle.isChecked();
