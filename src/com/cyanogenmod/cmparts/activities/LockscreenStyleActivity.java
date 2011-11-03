@@ -169,7 +169,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         mRingMinimalToggle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_RING_MINIMAL_TOGGLE);
         mRingMinimalToggle.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_RING_MINIMAL, 0) == 1);
+                Settings.System.LOCKSCREEN_RING_MINIMAL, 1) == 1);
 
         mRotaryHideArrowsToggle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE);

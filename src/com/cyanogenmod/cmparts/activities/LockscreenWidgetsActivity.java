@@ -119,7 +119,7 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
         /* Always Display Battery Status */
         mAlwaysBatteryPref = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_ALWAYS_BATTERY);
         mAlwaysBatteryPref.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_ALWAYS_BATTERY, 0) == 1);
+                Settings.System.LOCKSCREEN_ALWAYS_BATTERY, 1) == 1);
 
         /* Calendars */
         mCalendarsPref = (MultiSelectListPreference) prefSet.findPreference(LOCKSCREEN_CALENDARS);
@@ -174,7 +174,7 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
         mFuzzyClock = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_FUZZY_CLOCK);
         mFuzzyClock.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_FUZZY_CLOCK, 0) == 1);
+                Settings.System.LOCKSCREEN_FUZZY_CLOCK, 1) == 1);
 
         /* Adds custom text to the lockscreen where the notifications appear */
         mDrewToggle = (CheckBoxPreference) prefSet
